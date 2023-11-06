@@ -14,4 +14,4 @@ e adicionar o item ao carrinho. Os serviços são um array de objetos inseridos 
 -  ``Javascript``
 
 ## 📁 Acesso ao projeto
-Você pode acessar o projeto clicando [aqui]().
+Você pode acessar o projeto clicando [aqui](https://juliadidra.github.io/Projeto_WEB1/).

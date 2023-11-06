@@ -6,18 +6,55 @@
     <title>Agenda beleza</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
     <header class="header">
         <nav class="navbar">
             <ul class="lista-nav">
-                <li class="item-nav"> <a href="#">Inicio</a> </li>
-                <li class="item-nav"> <a href="#">Agendamento</a></li>
-                <li class="item-nav"> <a href="#">Shop</a></li>
-                <li class="item-nav"> <a href="#">Contato</a> </li>
+                <li class="item-nav"> <a href="#"> <strong>Agenda</strong>beleza</a> </li>
+                <li class="item-nav">
+                    <a class="button-carrinho">
+                        <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
+                    </a>
+                </li>
             </ul>
+            
         </nav>
+
+       
+
+        <div class="modal">
+            <div id="popup">
+                <div id="modal-info">
+                    <h3 id="modal-nome-servico"> </h3>
+                    <img id="modal-img" src="" alt="">
+                    <p id="modal-preco"></p>
+                </div>
+                <h2 class="texto-popup"> Escolha o dia e o horário do seu agendamento</h2>
+                <input type="date" name="data" id="input-data">
+                <input type="time" name="horario" id="input-horario">
+                <button id="botao-popup">Agendar e adicionar ao carrinho</button>
+                <button class="close-button"> fechar </button>
+            </div> 
+        </div>
     </header>
+
+    <div class="modal-cart">
+        <div id="cart">
+            <h2 class="texto-popup"> Carrinho de compras</h2>
+            <div class="cart-content">
+                <ul class="lista-cart">
+                    <!-- <li class="item-cart"> 7</li> -->
+                </ul>
+                <p id="soma-precos"> Total: R$ 0 </p>
+                <div class="div-botoes-cart">
+                    <button id="botao-cart-comprar">Finalizar compra</button>
+                    <button class="close-button"> Fechar </button>
+                </div>
+            </div>
+        </div> 
+    </div>
 
     <section>
         <div class="div-apresentacao">
@@ -30,29 +67,25 @@
         <div class="div-serviços">
             <h2 class="titulo-serviços">Serviços para agendamento</h2>
 
-            <ul class="lista-serviços">
-                <li class="serviços"> 
-                    <p>Escova</p> 
-                    <button class="botao"> 
-                        <i class="fa-solid fa-plus"></i>
-                    </button> 
-                </li> 
-                <li class="serviços"> 
-                    <p>Hidratação</p> 
-                    <button class="botao"> 
-                        <i class="fa-solid fa-plus"></i>
-                    </button> 
-                </li>
-                <li class="serviços"> 
-                    <p>Mechas</p> 
-                    <button class="botao"> 
-                        <i class="fa-solid fa-plus"></i>
-                    </button> 
-                </li>
-
-            </ul>
+            <ul class="lista-serviços"></ul>
 
         </div>
+
     </section>
+
+    <footer>
+        <div class="div-footer">
+            <h2 class="titulo-footer">Contatos</h2>
+            <ul class="lista-contatos">
+                <li class="item-contato"> Whatsapp: (81)98731105</li>
+                <li class="item-contato"> 
+                    <a class="link-footer" href="https://www.instagram.com/espacoandreaewilza/"> <i class="fa-brands fa-instagram"></i> Andrea Luiza</a>
+                </li>
+            </ul>
+            <hr>
+            <p class="text-copyright"> © 2023 Julia Didra </p>
+        </div>
+
+    </footer>
 </body>
 </html>

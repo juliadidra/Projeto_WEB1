@@ -348,10 +348,6 @@ a{
     padding-bottom: 1rem;
 }
 
-.div-total{
-    display: flex;
-    flex-direction: column;
-}
 
 .lista-cart {
     display: flex;
@@ -460,6 +456,109 @@ hr{
     text-align: center;
     color: wheat;
 }
+
+.botao-cadastro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-left: 1em;
+    margin-top: 1.5em;
+    padding: 1em;
+    background: var(--cinza);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: all 0.3s;
+    color: rgba(0, 0, 0, 0.654); 
+}
+
+.botao-cadastro:hover{
+    background: var(--rose);
+}
+
+.modal-cadastro{
+    display: none;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.362);
+}
+
+#cadastro{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    width: 30%; 
+    padding: 2em 4em;
+    background: var(--cinza);
+    border-radius: 14px;
+    align-items: center;
+    animation: popupA 0.5s; 
+    justify-content: center;
+    margin: 2.5em;
+}
+
+.div-inputs-cadastro{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#input-nome, #input-preco, #input-link-img{
+    text-align: center;
+    width: 80%;
+    border-radius: 12px;
+    border: none;
+    padding: 0.5em;
+    background: rgba(128, 128, 128, 0.464);
+}
+
+.modal-cadastro.active{
+    display: flex;
+}
+
+#botao-cadastrar-servico{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 1px solid #22c55e; 
+    border-radius: 14px;
+    padding: 0.5rem 2rem;
+    background: #22c55e;
+    margin-bottom: 0.5em; 
+}
+#botao-cadastrar-servico:hover{
+    background: #1ca34d;
+}
+
+.cancelar-cadastro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 1px solid var(--cinza); 
+    border-radius: 14px;
+    padding: 0.5rem 2rem;
+    background: var(--red);
+    margin-bottom: 0.5em; 
+}
+
+.cancelar-cadastro:hover{
+    background: var(--red-hover);
+}
+
+.texto-cadastro{
+    font-weight: 500;
+    margin-bottom: 1em;
+}
+
 
 @keyframes cartAnimation {
     0% {

@@ -1,7 +1,8 @@
 var servicos_selecionados = [];
 var botoes_remove_servico;
 
-const services = [
+
+var services = [
     {
         nome_servico: "Coloração",
         imagem: "./assets/coloracao.jpg",
@@ -53,6 +54,32 @@ const text_preco_cart = document.getElementById("soma-precos");
 const botao_finalizar_compra = document.getElementById("botao-cart-comprar");
 
 const botao_fechar = document.querySelectorAll(".close-button");
+const botao_cadastro = document.getElementsByClassName("botao-cadastro")[0];
+const modal_cadastro = document.getElementsByClassName("modal-cadastro")[0];
+const cancelar_cadastro = document.getElementsByClassName("cancelar-cadastro")[0];
+const botao_cadastrar_servico = document.getElementById("botao-cadastrar-servico");
+const input_nome = document.getElementById("input-nome");
+const input_preco = document.getElementById("input-preco");
+const input_link_img = document.getElementById("input-link-img");
+
+botao_cadastro.addEventListener('click', () => {
+    modal_cadastro.classList.toggle("active");
+});
+
+cancelar_cadastro.addEventListener('click', () => {
+    modal_cadastro.classList.remove("active");
+})
+
+botao_cadastrar_servico.addEventListener('click', (e) =>{
+
+    var obj = {'nome_servico': input_nome.value, 'preco': parseFloat(input_preco.value), 'imagem': input_link_img.value};
+    services.push(obj);
+    console.log(obj);
+
+    showServices();
+
+})
+
 
 botao_carrinho.addEventListener("click", () => {
     modal_cart.classList.toggle("active");
@@ -67,30 +94,41 @@ botao_fechar.forEach(button => {
     })
 });
 
-services.forEach(s => {
-    lista_servicos.innerHTML += `<li class="serviços">
-    <div class="div-servico">
-        <img class="img-servico" src=${s.imagem} alt=${s.nome_servico}>
-        <p class="text-servico" >${s.nome_servico}</p>
-        <p class="text-valor"> R$ ${s.preco.toFixed(2)}</p>
-        <a class="id-botao-agendar botao" >
-            <p class="text-botao-servico">Agendar</p><i class="fa-solid fa-plus"></i>
-        </a>
-    </div>
-</li>`
-});
 
-const botao_agendar = document.querySelectorAll(".botao")
 
-botao_agendar.forEach((b, i) => {
-    b.addEventListener('click', e => {
-        e.preventDefault();
-        modal_img.src = services[i].imagem;
-        modal_nome_servico.innerText = services[i].nome_servico;
-        modal_preco.innerText = "R$ " + services[i].preco.toFixed(2);
-        div_modal.classList.toggle("active");
-    })
-});
+function showServices() {
+    lista_servicos.innerHTML = null;
+
+    services.forEach(s => {
+        lista_servicos.innerHTML += `<li class="serviços">
+        <div class="div-servico">
+            <img class="img-servico" src=${s.imagem} alt=${s.nome_servico}>
+            <p class="text-servico" >${s.nome_servico}</p>
+            <p class="text-valor"> R$ ${s.preco.toFixed(2)}</p>
+            <a class="id-botao-agendar botao" >
+                <p class="text-botao-servico">Agendar</p><i class="fa-solid fa-plus"></i>
+            </a>
+        </div>
+    </li>`
+    });
+
+    const botao_agendar = document.querySelectorAll(".botao")
+
+    botao_agendar.forEach((b, i) => {
+        b.addEventListener('click', e => {
+            e.preventDefault();
+            modal_img.src = services[i].imagem;
+            modal_nome_servico.innerText = services[i].nome_servico;
+            modal_preco.innerText = "R$ " + services[i].preco.toFixed(2);
+            div_modal.classList.toggle("active");
+        })
+    });
+    
+}
+
+showServices();
+
+
 
 const botao_agendar_popup = document.getElementById("botao-popup");
 

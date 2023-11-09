@@ -71,12 +71,19 @@ cancelar_cadastro.addEventListener('click', () => {
 })
 
 botao_cadastrar_servico.addEventListener('click', (e) =>{
+    if(input_nome.value === "" || input_preco.value === NaN || input_link_img.value === ""){
+        window.alert('insira os dados corretamente!')
 
-    var obj = {'nome_servico': input_nome.value, 'preco': parseFloat(input_preco.value), 'imagem': input_link_img.value};
-    services.push(obj);
-    console.log(obj);
+    } 
+    
+    else{
+        var obj = {'nome_servico': input_nome.value, 'preco': parseFloat(input_preco.value), 'imagem': input_link_img.value};
+        services.push(obj);
 
-    showServices();
+        showServices();
+        
+    }
+    
 
 })
 
@@ -133,19 +140,29 @@ showServices();
 const botao_agendar_popup = document.getElementById("botao-popup");
 
 botao_agendar_popup.addEventListener("click", () => {
-    div_modal.classList.remove("active")
-    let servico = services.find(s => s.nome_servico === modal_nome_servico.innerText);
-    modal_cart.classList.toggle("active")
-    
+
     const date = modal_input_date.value;
     const time = modal_input_time.value;
-    
-    servico.date = date;
-    servico.time = time;
-    
-    servicos_selecionados.push(servico);
 
+    if(modal_input_date.value == "" || modal_input_time.value == ""){
+        window.alert('insira os dados!')
+    }
+    else{
+        
+        div_modal.classList.remove("active")
+        let servico = services.find(s => s.nome_servico === modal_nome_servico.innerText);
+        modal_cart.classList.toggle("active")
+
+        servico.date = date;
+        servico.time = time;
+        
+        servicos_selecionados.push(servico);
+
+        
+    }
+    
     showCartList();
+    
 });
 
 function showCartList() {
